@@ -284,7 +284,13 @@
       font-weight:900;
       margin:12px 0;
     }
-
+.price small{
+  display:block;
+  color:#888;
+  font-size:12px;
+  font-weight:400;
+  margin-top:5px;
+}
     .outline{
       border:1px solid #555;
       padding:11px 16px;
@@ -391,6 +397,31 @@
   </style>
 </head>
 
+<script>
+  const tipoCambio = 6.96; // Modifica aquí el tipo de cambio
+
+  const preciosUSD = {
+    "GS Explorer S": 99,
+    "GS Active 2": 75,
+    "GS Active": 55,
+    "GS Pro 2": 75,
+    "Lite 3 Pro": 80,
+    "Lite 3": 55,
+    "GT": 85,
+    "A3": 55,
+    "C4": 50
+  };
+
+  document.querySelectorAll("[data-price-usd]").forEach(item => {
+    const usd = Number(item.dataset.priceUsd);
+    const bs = Math.round(usd * tipoCambio);
+    item.innerHTML = `
+      <div>Bs. ${bs}</div>
+      <small>Precio aproximado / referencial</small>
+    `;
+  });
+</script>
+  
 <body>
 
 <header>
@@ -456,7 +487,7 @@
         <li>GPS doble frecuencia</li>
         <li>Hasta 20 días</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="99"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Explorer" target="_blank">Consultar</a>
     </div>
 
@@ -473,7 +504,7 @@
         <li>GNSS doble frecuencia</li>
         <li>Hasta 20 días</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="75"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Active2" target="_blank">Consultar</a>
     </div>
 
@@ -490,7 +521,7 @@
         <li>5ATM</li>
         <li>Hasta 20 días</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="55"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Active" target="_blank">Consultar</a>
     </div>
 
@@ -507,7 +538,7 @@
         <li>5ATM</li>
         <li>Hasta 20 días</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="75"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Pro" target="_blank">Consultar</a>
     </div>
 
@@ -524,7 +555,7 @@
         <li>Llamadas Bluetooth</li>
         <li>GPS en tiempo real</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="80"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20Lite%203%20Pro" target="_blank">Consultar</a>
     </div>
 
@@ -541,7 +572,7 @@
         <li>Salud y sueño</li>
         <li>Hasta 12 días</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="55"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20Lite%203" target="_blank">Consultar</a>
     </div>
 
@@ -558,7 +589,7 @@
         <li>5ATM</li>
         <li>Llamadas Bluetooth</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="85"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GT" target="_blank">Consultar</a>
     </div>
 
@@ -575,7 +606,7 @@
         <li>Llamadas Bluetooth</li>
         <li>Salud inteligente</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="55"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20A3" target="_blank">Consultar</a>
     </div>
 
@@ -592,7 +623,7 @@
         <li>100+ modos deportivos</li>
         <li>Hasta 10 días</li>
       </ul>
-      <div class="price">Consultar</div>
+      <div class="price" data-price-usd="50"></div>
       <a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20C4" target="_blank">Consultar</a>
     </div>
 
