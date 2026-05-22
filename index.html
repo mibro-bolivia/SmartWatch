@@ -389,7 +389,7 @@
       section{padding:55px 18px}
       .section-title h2{font-size:30px}
       .product-img{height:190px}
-      .product-img img{height:135px;max-width:80%}
+      .product-img img{height:180px;max-width:95%}
       .tech{grid-template-columns:1fr}
       .tech div{border-right:0;border-bottom:1px solid #333}
       .tech div:last-child{border-bottom:0}
@@ -692,6 +692,18 @@
 </footer>
 
 <a class="btn whatsapp" href="https://wa.me/59162669126" target="_blank">WhatsApp</a>
+<script>
+  const tipoCambio = 6.96;
 
+  document.querySelectorAll("[data-price-usd]").forEach(item => {
+    const usd = Number(item.dataset.priceUsd);
+    const bs = Math.round(usd * tipoCambio);
+
+    item.innerHTML = `
+      <div>Bs. ${bs}</div>
+      <small>Precio aproximado / referencial</small>
+    `;
+  });
+</script>
 </body>
 </html>
