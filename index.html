@@ -1,12 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mibro Bolivia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mibro Bolivia | Catálogo Premium</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:#050505;color:#fff}
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;z-index:99;background:rgba(5,5,5,.85);backdrop-filter:blur(14px);border-bottom:1px solid #222}
+    nav{max-width:1200px;margin:auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:32px;font-weight:900;color:#ff6a00;letter-spacing:1px}
+    .logo span{display:block;font-size:13px;color:white;margin-top:-5px}
+    .navlinks{display:flex;gap:24px;font-size:14px;color:#ddd}
+    .btn{background:linear-gradient(135deg,#ff6a00,#ff9a2f);padding:13px 22px;border-radius:14px;font-weight:800;color:white;display:inline-block}
+    .hero{min-height:88vh;background:radial-gradient(circle at 70% 30%,#3a1a05,transparent 35%),linear-gradient(135deg,#080808,#111,#050505);display:flex;align-items:center}
+    .hero-wrap{max-width:1200px;margin:auto;padding:70px 22px;display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center}
+    .tag{color:#ff7a00;font-weight:800;letter-spacing:3px;font-size:13px;margin-bottom:18px}
+    h1{font-size:58px;line-height:1.05;margin-bottom:22px}
+    h1 span{color:#ff6a00}
+    .hero p{font-size:18px;color:#ccc;line-height:1.7;max-width:560px}
+    .features{display:flex;gap:16px;flex-wrap:wrap;margin:32px 0}
+    .chip{border:1px solid #333;background:rgba(255,255,255,.04);padding:12px 16px;border-radius:999px;color:#ddd}
+    .watch-visual{position:relative;height:420px;border-radius:36px;background:radial-gradient(circle,#222,#080808 65%);border:1px solid #333;box-shadow:0 0 70px rgba(255,106,0,.22);display:flex;align-items:center;justify-content:center}
+    .watch-face{width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#1a1a1a,#000);border:12px solid #242424;box-shadow:0 0 50px rgba(255,106,0,.45);display:flex;align-items:center;justify-content:center;text-align:center}
+    .watch-face strong{font-size:34px;color:#ff6a00}
+    .float{position:absolute;background:rgba(10,10,10,.85);border:1px solid #333;border-radius:18px;padding:14px 18px;color:#eee;box-shadow:0 15px 50px rgba(0,0,0,.4)}
+    .f1{top:35px;left:25px}.f2{right:25px;top:120px}.f3{bottom:40px;left:70px}
+    section{max-width:1200px;margin:auto;padding:75px 22px}
+    .section-title{text-align:center;margin-bottom:42px}
+    .section-title small{color:#ff6a00;font-weight:900;letter-spacing:3px}
+    .section-title h2{font-size:38px;margin-top:10px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .card{background:linear-gradient(180deg,#141414,#080808);border:1px solid #2a2a2a;border-radius:26px;padding:22px;position:relative;overflow:hidden;transition:.25s}
+    .card:hover{transform:translateY(-7px);border-color:#ff6a00;box-shadow:0 20px 60px rgba(255,106,0,.16)}
+    .badge{position:absolute;top:16px;left:16px;background:#ff6a00;color:white;font-size:11px;font-weight:900;padding:7px 10px;border-radius:999px}
+    .product-img{height:160px;border-radius:22px;background:radial-gradient(circle,#333,#111 65%);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+    .product-img div{width:105px;height:105px;border-radius:50%;border:8px solid #333;background:#050505;display:flex;align-items:center;justify-content:center;color:#ff6a00;font-weight:900;text-align:center}
+    .card h3{font-size:20px;margin-bottom:8px}
+    .card p{color:#aaa;font-size:14px;line-height:1.5;margin-bottom:14px}
+    .specs{list-style:none;margin:15px 0;color:#ddd;font-size:13px;line-height:1.9}
+    .specs li:before{content:"✓ ";color:#ff6a00;font-weight:bold}
+    .price{color:#ff6a00;font-size:22px;font-weight:900;margin:12px 0}
+    .outline{border:1px solid #555;padding:11px 16px;border-radius:12px;display:block;text-align:center;font-weight:800;font-size:13px;margin-top:12px}
+    .outline:hover{background:#ff6a00;border-color:#ff6a00}
+    .tech{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;background:linear-gradient(135deg,#101010,#060606);border:1px solid #2a2a2a;border-radius:28px;padding:30px}
+    .tech div{border-right:1px solid #333;padding:10px}
+    .tech div:last-child{border-right:0}
+    .tech strong{color:#ff6a00;font-size:28px;display:block;margin-bottom:8px}
+    footer{background:#080808;border-top:1px solid #222;padding:45px 22px;color:#aaa}
+    .footer-wrap{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+    .whatsapp{position:fixed;right:22px;bottom:22px;z-index:100}
+    @media(max-width:900px){
+      .hero-wrap{grid-template-columns:1fr}
+      h1{font-size:42px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .tech{grid-template-columns:1fr 1fr}
+      .navlinks{display:none}
+    }
+    @media(max-width:560px){
+      .grid{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .watch-visual{height:330px}
+      .watch-face{width:210px;height:210px}
+      .float{font-size:12px}
+      .tech{grid-template-columns:1fr}
+    }
+  </style>
 </head>
-<body style="background:#111;color:white;text-align:center;font-family:Arial;padding-top:100px;">
-  <h1>Mibro Bolivia</h1>
-  <p>Catálogo Oficial Smart GSM Bolivia</p>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">mibro<span>Bolivia</span></div>
+    <div class="navlinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn" href="https://wa.me/59162669126" target="_blank">WhatsApp</a>
+  </nav>
+</header>
+
+<main id="inicio" class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="tag">TECNOLOGÍA INTELIGENTE</div>
+      <h1>Catálogo Premium <span>Mibro Bolivia</span></h1>
+      <p>Relojes inteligentes para deporte, salud, estilo y aventura. Tecnología moderna, diseño elegante y funciones inteligentes para cada día.</p>
+      <div class="features">
+        <div class="chip">AMOLED</div>
+        <div class="chip">GPS</div>
+        <div class="chip">Llamadas Bluetooth</div>
+        <div class="chip">Salud 24/7</div>
+      </div>
+      <a class="btn" href="#catalogo">Ver catálogo</a>
+    </div>
+
+    <div class="watch-visual">
+      <div class="float f1">Pantalla AMOLED</div>
+      <div class="float f2">Hasta 20 días batería</div>
+      <div class="float f3">150+ modos deportivos</div>
+      <div class="watch-face"><strong>MIBRO</strong></div>
+    </div>
+  </div>
+</main>
+
+<section id="catalogo">
+  <div class="section-title">
+    <small>NUESTROS MODELOS</small>
+    <h2>Relojes inteligentes Mibro</h2>
+  </div>
+
+  <div class="grid">
+
+    <div class="card"><span class="badge">Outdoor</span><div class="product-img"><div>GS<br>Explorer</div></div><h3>Mibro GS Explorer</h3><p>Diseñado para aventura extrema.</p><ul class="specs"><li>AMOLED 1.32"</li><li>10ATM</li><li>GPS doble frecuencia</li><li>Hasta 20 días</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Explorer" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Nuevo</span><div class="product-img"><div>GS<br>Active2</div></div><h3>Mibro GS Active2</h3><p>Reloj running con GPS y alto brillo.</p><ul class="specs"><li>AMOLED 1200 nits</li><li>5ATM</li><li>GNSS doble frecuencia</li><li>Hasta 20 días</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Active2" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Fitness</span><div class="product-img"><div>GS<br>Active</div></div><h3>Mibro GS Active</h3><p>Salud, deporte y batería duradera.</p><ul class="specs"><li>AMOLED 1000 nits</li><li>150 modos deportivos</li><li>5ATM</li><li>Hasta 20 días</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Active" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Premium</span><div class="product-img"><div>GS<br>Pro</div></div><h3>Mibro GS Pro</h3><p>Multisport con diseño resistente.</p><ul class="specs"><li>AMOLED 461 PPI</li><li>GPS integrado</li><li>5ATM</li><li>Hasta 20 días</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GS%20Pro" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Elegante</span><div class="product-img"><div>Lite<br>3 Pro</div></div><h3>Mibro Lite 3 Pro</h3><p>Elegancia, salud precisa y deporte.</p><ul class="specs"><li>150+ modos deportivos</li><li>5ATM</li><li>Llamadas Bluetooth</li><li>GPS en tiempo real</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20Lite%203%20Pro" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Diario</span><div class="product-img"><div>Lite<br>3</div></div><h3>Mibro Lite 3</h3><p>Smartwatch elegante para uso diario.</p><ul class="specs"><li>Llamadas Bluetooth</li><li>2ATM</li><li>Salud y sueño</li><li>Hasta 12 días</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20Lite%203" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">IA</span><div class="product-img"><div>GT</div></div><h3>Mibro GT</h3><p>Acero inoxidable con asistente IA.</p><ul class="specs"><li>AMOLED 1.43"</li><li>Asistente IA</li><li>5ATM</li><li>Llamadas Bluetooth</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20GT" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Ligero</span><div class="product-img"><div>A3</div></div><h3>Mibro A3</h3><p>Ligero, moderno y funcional.</p><ul class="specs"><li>29 g</li><li>100+ modos deportivos</li><li>Llamadas Bluetooth</li><li>Salud inteligente</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20A3" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Pantalla grande</span><div class="product-img"><div>C4</div></div><h3>Mibro C4</h3><p>Pantalla amplia y diseño ultradelgado.</p><ul class="specs"><li>HD 2.01"</li><li>60 Hz</li><li>100+ modos deportivos</li><li>Hasta 10 días</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20C4" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Kids</span><div class="product-img"><div>Kids<br>S1</div></div><h3>Mibro Kids S1</h3><p>Seguridad y comunicación para niños.</p><ul class="specs"><li>Llamadas 4G</li><li>Videollamadas</li><li>Cámaras duales</li><li>GPS en tiempo real</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20Kids%20S1" target="_blank">Consultar</a></div>
+
+    <div class="card"><span class="badge">Kids</span><div class="product-img"><div>Kids<br>Z5</div></div><h3>Mibro Kids Z5</h3><p>GPS, SOS y videollamada.</p><ul class="specs"><li>GPS 7 capas</li><li>Cámara dual 2MP</li><li>Llamadas 4G</li><li>2ATM</li></ul><div class="price">Consultar</div><a class="outline" href="https://wa.me/59162669126?text=Hola,%20quiero%20información%20del%20Mibro%20Kids%20Z5" target="_blank">Consultar</a></div>
+
+  </div>
+</section>
+
+<section id="tecnologia">
+  <div class="section-title">
+    <small>TECNOLOGÍA MIBRO</small>
+    <h2>Funciones que marcan la diferencia</h2>
+  </div>
+  <div class="tech">
+    <div><strong>⌚</strong><b>AMOLED</b><p>Pantallas brillantes y elegantes.</p></div>
+    <div><strong>📍</strong><b>GPS</b><p>Seguimiento para deporte y aventura.</p></div>
+    <div><strong>❤️</strong><b>Salud 24/7</b><p>Ritmo cardíaco, sueño, estrés y SpO2.</p></div>
+    <div><strong>🏃</strong><b>Modos deportivos</b><p>Entrenamientos para cada estilo de vida.</p></div>
+    <div><strong>🔋</strong><b>Batería</b><p>Autonomía para varios días de uso.</p></div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="footer-wrap">
+    <div>
+      <div class="logo">mibro<span>Bolivia</span></div>
+      <p>Tecnología inteligente para una vida mejor.</p>
+    </div>
+    <div>
+      <h3>Contacto</h3>
+      <p>WhatsApp: +591 626 69126</p>
+      <p>Smart GSM Bolivia</p>
+    </div>
+    <div>
+      <a class="btn" href="https://wa.me/59162669126" target="_blank">Comprar por WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<a class="btn whatsapp" href="https://wa.me/59162669126" target="_blank">WhatsApp</a>
+
 </body>
 </html>
