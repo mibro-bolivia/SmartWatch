@@ -396,31 +396,6 @@
     }
   </style>
 </head>
-
-<script>
-  const tipoCambio = 6.96; // Modifica aquí el tipo de cambio
-
-  const preciosUSD = {
-    "GS Explorer S": 99,
-    "GS Active 2": 75,
-    "GS Active": 55,
-    "GS Pro 2": 75,
-    "Lite 3 Pro": 80,
-    "Lite 3": 55,
-    "GT": 85,
-    "A3": 55,
-    "C4": 50
-  };
-
-  document.querySelectorAll("[data-price-usd]").forEach(item => {
-    const usd = Number(item.dataset.priceUsd);
-    const bs = Math.round(usd * tipoCambio);
-    item.innerHTML = `
-      <div>Bs. ${bs}</div>
-      <small>Precio aproximado / referencial</small>
-    `;
-  });
-</script>
   
 <body>
 
@@ -463,6 +438,7 @@
       <div class="float f2">Hasta 20 días batería</div>
       <div class="float f3">150+ modos deportivos</div>
       <img src="images/hero-watch.png" class="hero-watch">
+    </div>
   </div>
 </main>
 
