@@ -137,24 +137,23 @@
       justify-content:center;
       overflow:hidden;
     }
+    
+    .hero-watch{
+      width: 340px;
+      max-width: 85%;
+      position: relative;
+      z-index: 2;
+      filter:
+    drop-shadow(0 25px 35px rgba(0,0,0,.6))
+    drop-shadow(0 0 35px rgba(255,106,0,.25));
+  animation: floatWatch 4s ease-in-out infinite;
+}
 
-    .watch-face{
-      width:260px;
-      height:260px;
-      border-radius:50%;
-      background:radial-gradient(circle,#1a1a1a,#000);
-      border:12px solid #242424;
-      box-shadow:0 0 50px rgba(255,106,0,.45);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
-
-    .watch-face strong{
-      font-size:34px;
-      color:#ff6a00;
-    }
+@keyframes floatWatch{
+  0%{transform:translateY(0px)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0px)}
+}
 
     .float{
       position:absolute;
@@ -432,8 +431,7 @@
       <div class="float f1">Pantalla AMOLED</div>
       <div class="float f2">Hasta 20 días batería</div>
       <div class="float f3">150+ modos deportivos</div>
-      <div class="watch-face"><strong>MIBRO</strong></div>
-    </div>
+      <img src="images/hero-watch.png" class="hero-watch">
   </div>
 </main>
 
